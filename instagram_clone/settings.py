@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     #packages
     'rest_framework' ,
      
-     #local
+     #local apps
      'users',
      'shared',
 ]
