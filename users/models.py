@@ -7,6 +7,7 @@ from shared.models import BaseModel
 from datetime import datetime , timedelta
 import random
 import uuid
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 
@@ -74,8 +75,30 @@ class User(AbstractUser , BaseModel):
         if not self.password:
             temp_password = f'password-{uuid.uuid4().__str__().split("-")[-1]}'     
             self.password = temp_password
-            
-                           
+
+    
+    def hashshing_password(self):
+        if not self.password.startswith('pbkdf2_sha256'):
+            self.set_password(self.password)
+
+    def token(self):
+        refresh =  RefreshToken.for_user(self)
+        return {
+            'access_token': str(refresh.access_token),
+            'refresh_token': str(refresh)
+        }        
+    
+    def clean(self):
+        self.check_email
+        self.check_username
+        self.check_password       
+        self.hashshing_password
+
+    def save(self, *args,**kwargs):
+        if not self.pk:
+            self.clean()
+        super(User , self).save(*args,**kwargs)        
+        
 PHONE_EXPIRE = 2
 EMAIL_EXPAIR = 5
 
