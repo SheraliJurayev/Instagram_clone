@@ -9,7 +9,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
+DEBUG = True
+SECRET_KEY ='django-insecure-od8-9&w-bs5qtjr=6vm&65jyccq*@)&7d_q9f0=mk9+*@3@t&&'
 
 ALLOWED_HOSTS = []
 
@@ -26,7 +27,7 @@ INSTALLED_APPS = [
 
     #packages
     'rest_framework' ,
-     'rest_framework_simplejwt'
+    'rest_framework_simplejwt',
      #local apps
      'users',
      'shared',
@@ -59,6 +60,12 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+
+'DEFAULT_PERMISSION_CLASSES': ( 'rest_framework.permissions.IsAdminUser')
+
+}
 
 WSGI_APPLICATION = 'instagram_clone.wsgi.application'
 

@@ -32,8 +32,8 @@ class User(AbstractUser , BaseModel):
         (PHOTO_STEP , PHOTO_STEP) 
     )
     user_roles = models.CharField(max_length=31 , choices=USER_ROLES , default=ORDINARY_USER)
-    AUTH_TYPE = models.CharField(max_length=31 , choices=AUTH_TYPE_CHOICES)
-    AUTH_STATUS = models.CharField(max_length=31 , choices=AUTH_STATUS , default = NEW)
+    auth_type = models.CharField(max_length=31 , choices=AUTH_TYPE_CHOICES)
+    auth_status = models.CharField(max_length=31 , choices=AUTH_STATUS , default = NEW)
     email = models.EmailField(null=True , unique=True,blank=True)
     phone_number = models.CharField(max_length=13 , null=True , unique=True ,blank=True)
     photo = models.ImageField(upload_to='user_photos/', null=True ,blank=True , 

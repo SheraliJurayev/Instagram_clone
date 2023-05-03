@@ -22,10 +22,10 @@ class SignUpSerializer(serializers.ModelSerializer):
 
         extra_kwargs = {
             'auth_type': { 'read_only':True , 'required' : False} , 
-            'auth_status': { 'read_only':True , 'required' : False} , 
+            'auth_status': { 'read_only':True , 'required' : False} 
 
         }
 
     @staticmethod
     def auth_validate(attrs):
-        pass
+        print(attrs)
