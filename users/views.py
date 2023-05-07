@@ -5,5 +5,5 @@ from .serializers import SignUpSerializer
 
 class CreateUserView(CreateAPIView):
     queryset = User.objects.all()
-    permission_classes = (permissions.AllowAny)
+    permission_classes = (permissions.AllowAny , )
     serializer_class = SignUpSerializer
