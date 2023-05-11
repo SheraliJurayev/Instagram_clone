@@ -55,7 +55,6 @@ class User(AbstractUser , BaseModel):
             verify_type=verify_type,
             code=code
         ) 
-
         return code
     
     def check_username(self):
