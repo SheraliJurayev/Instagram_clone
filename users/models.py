@@ -85,7 +85,11 @@ class User(AbstractUser , BaseModel):
         return {
             'access_token': str(refresh.access_token),
             'refresh_token': str(refresh)
-        }        
+        }    
+
+    def save(self, *args,**kwargs):
+        self.clean()
+        super(User , self).save(*args,**kwargs)     
     
     def clean(self):
         self.check_email
@@ -93,10 +97,7 @@ class User(AbstractUser , BaseModel):
         self.check_password       
         self.hashshing_password
 
-    def save(self, *args,**kwargs):
-        if not self.pk:
-            self.clean()
-        super(User , self).save(*args,**kwargs)        
+       
         
 PHONE_EXPIRE = 2
 EMAIL_EXPAIR = 5
