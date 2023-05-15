@@ -11,6 +11,7 @@ djangorestframework = "*"
 pillow = "*"
 djangorestframework-simplejwt = "*"
 rest-framework-simplejwt = "*"
+decouple = "*"
 
 [dev-packages]
 
