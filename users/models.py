@@ -109,7 +109,7 @@ class UserConfirmation(BaseModel):
     )
     verify_type = models.CharField(max_length=31 , choices= TYPE_ChOICES)
     code = models.CharField(max_length=4)
-    user = models.ForeignKey('users.User', models.CASCADE , related_name = 'verify_code')
+    user = models.ForeignKey('users.User', models.CASCADE , related_name = 'verify_codes')
     expiration_time = models.DateTimeField(null=True)
     is_confirmed = models.BooleanField(default=False)
 
