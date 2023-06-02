@@ -5,13 +5,13 @@ name = "pypi"
 
 [packages]
 django = "*"
-python-decouple = "*"
 psycopg2 = "*"
 djangorestframework = "*"
 pillow = "*"
 djangorestframework-simplejwt = "*"
 rest-framework-simplejwt = "*"
-decouple = "*"
+python-decouple = "*"
+phonenumbers = "*"
 
 [dev-packages]
 

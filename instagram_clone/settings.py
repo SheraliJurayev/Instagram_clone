@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     #packages
     'rest_framework' ,
     'rest_framework_simplejwt',
+    'phonenumbers' ,
      #local apps
      'users',
      'shared',
